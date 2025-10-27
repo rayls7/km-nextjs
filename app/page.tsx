@@ -420,6 +420,8 @@ export default function KMRegistrationPage() {
                   <SelectContent>
                     <SelectItem value="IMP">IMP</SelectItem>
                     <SelectItem value="AÇA">AÇA</SelectItem>
+                    <SelectItem value="MAR">MAR</SelectItem>
+                    <SelectItem value="SSL">SSL</SelectItem>
                   </SelectContent>
                 </Select>
               </div>
