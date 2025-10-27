@@ -28,8 +28,13 @@ interface FormData {
   entries: KMEntry[]
 }
 
+const parseDateLocal = (dateString: string): Date => {
+  const [year, month, day] = dateString.split("-").map(Number)
+  return new Date(year, month - 1, day)
+}
+
 const formatDateBR = (dateString: string): string => {
-  const date = new Date(dateString)
+  const date = parseDateLocal(dateString)
   return date.toLocaleDateString("pt-BR", {
     day: "2-digit",
     month: "2-digit",
@@ -38,7 +43,7 @@ const formatDateBR = (dateString: string): string => {
 }
 
 const formatFullDateBR = (dateString: string): string => {
-  const date = new Date(dateString)
+  const date = parseDateLocal(dateString)
   return date.toLocaleDateString("pt-BR", {
     weekday: "long",
     year: "numeric",

@@ -198,7 +198,7 @@
 
   /* Organized date group sections with navy blue and coral orange theme */
   .print-date-group {
-    margin-bottom: 20pt !important;
+    margin-bottom: 16pt !important;
     page-break-inside: avoid !important;
   }
 
@@ -208,23 +208,23 @@
     padding: 8pt 12pt !important;
     font-size: 12pt !important;
     font-weight: 700 !important;
-    margin-bottom: 12pt !important;
+    margin-bottom: 10pt !important;
     text-transform: uppercase !important;
     letter-spacing: 0.8pt !important;
     border-left: 4pt solid #fb923c !important;
     box-shadow: 0 1pt 3pt rgba(0, 0, 0, 0.1) !important;
   }
 
-  /* Compact 2-column grid layout for entries */
+  /* Improved spacing in entries grid - reduced gap from 14pt to 10pt for better space efficiency */
   .print-entries-grid {
     display: grid !important;
     grid-template-columns: repeat(2, 1fr) !important;
-    gap: 14pt !important;
+    gap: 10pt !important;
   }
 
   .print-entry-card {
     border: 2pt solid #1e3a8a !important;
-    padding: 12pt !important;
+    padding: 10pt !important;
     page-break-inside: avoid !important;
     background: white !important;
     border-radius: 6pt !important;
@@ -232,10 +232,10 @@
   }
 
   .print-entry-type {
-    font-size: 12pt !important;
+    font-size: 11pt !important;
     font-weight: 700 !important;
-    margin-bottom: 10pt !important;
-    padding: 6pt 10pt !important;
+    margin-bottom: 8pt !important;
+    padding: 5pt 8pt !important;
     border-radius: 4pt !important;
     text-transform: uppercase !important;
     letter-spacing: 0.5pt !important;
@@ -255,19 +255,19 @@
   .print-entry-image {
     width: 100% !important;
     height: auto !important;
-    max-height: 180pt !important;
+    max-height: 170pt !important;
     object-fit: cover !important;
-    margin-bottom: 10pt !important;
+    margin-bottom: 8pt !important;
     border: 1.5pt solid #e5e7eb !important;
     border-radius: 4pt !important;
   }
 
   .print-entry-date {
-    font-size: 10pt !important;
+    font-size: 9pt !important;
     color: #1e3a8a !important;
     font-weight: 600 !important;
-    margin-top: 8pt !important;
-    padding-top: 8pt !important;
+    margin-top: 6pt !important;
+    padding-top: 6pt !important;
     border-top: 1pt solid #e5e7eb !important;
     text-align: center !important;
   }
