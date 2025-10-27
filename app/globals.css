@@ -1,0 +1,288 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* Updated theme to dynamic navy blue and coral orange color scheme */
+:root {
+  --background: oklch(0.99 0 0);
+  --foreground: oklch(0.15 0.02 255);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.15 0.02 255);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.15 0.02 255);
+  --primary: oklch(0.35 0.12 255);
+  --primary-foreground: oklch(0.99 0 0);
+  --secondary: oklch(0.96 0.01 255);
+  --secondary-foreground: oklch(0.15 0.02 255);
+  --muted: oklch(0.97 0.01 255);
+  --muted-foreground: oklch(0.5 0.02 255);
+  --accent: oklch(0.68 0.18 35);
+  --accent-foreground: oklch(0.99 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.99 0 0);
+  --border: oklch(0.92 0.01 255);
+  --input: oklch(0.96 0.01 255);
+  --ring: oklch(0.35 0.12 255);
+  --chart-1: oklch(0.35 0.12 255);
+  --chart-2: oklch(0.68 0.18 35);
+  --chart-3: oklch(0.45 0.12 255);
+  --chart-4: oklch(0.75 0.15 35);
+  --chart-5: oklch(0.55 0.1 255);
+  --radius: 0.5rem;
+  --sidebar: oklch(0.99 0 0);
+  --sidebar-foreground: oklch(0.15 0.02 255);
+  --sidebar-primary: oklch(0.35 0.12 255);
+  --sidebar-primary-foreground: oklch(0.99 0 0);
+  --sidebar-accent: oklch(0.96 0.01 255);
+  --sidebar-accent-foreground: oklch(0.15 0.02 255);
+  --sidebar-border: oklch(0.92 0.01 255);
+  --sidebar-ring: oklch(0.35 0.12 255);
+}
+
+.dark {
+  --background: oklch(0.12 0.02 255);
+  --foreground: oklch(0.99 0 0);
+  --card: oklch(0.16 0.02 255);
+  --card-foreground: oklch(0.99 0 0);
+  --popover: oklch(0.16 0.02 255);
+  --popover-foreground: oklch(0.99 0 0);
+  --primary: oklch(0.55 0.15 255);
+  --primary-foreground: oklch(0.12 0.02 255);
+  --secondary: oklch(0.2 0.02 255);
+  --secondary-foreground: oklch(0.99 0 0);
+  --muted: oklch(0.2 0.02 255);
+  --muted-foreground: oklch(0.6 0.02 255);
+  --accent: oklch(0.68 0.18 35);
+  --accent-foreground: oklch(0.12 0.02 255);
+  --destructive: oklch(0.5 0.2 27);
+  --destructive-foreground: oklch(0.99 0 0);
+  --border: oklch(0.24 0.02 255);
+  --input: oklch(0.2 0.02 255);
+  --ring: oklch(0.55 0.15 255);
+  --chart-1: oklch(0.55 0.15 255);
+  --chart-2: oklch(0.68 0.18 35);
+  --chart-3: oklch(0.65 0.12 255);
+  --chart-4: oklch(0.75 0.15 35);
+  --chart-5: oklch(0.45 0.1 255);
+  --sidebar: oklch(0.16 0.02 255);
+  --sidebar-foreground: oklch(0.99 0 0);
+  --sidebar-primary: oklch(0.55 0.15 255);
+  --sidebar-primary-foreground: oklch(0.12 0.02 255);
+  --sidebar-accent: oklch(0.2 0.02 255);
+  --sidebar-accent-foreground: oklch(0.99 0 0);
+  --sidebar-border: oklch(0.24 0.02 255);
+  --sidebar-ring: oklch(0.55 0.15 255);
+}
+
+@theme inline {
+  --font-sans: "Geist", "Geist Fallback";
+  --font-mono: "Geist Mono", "Geist Mono Fallback";
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Improved PDF print styles with better header and organization */
+@media print {
+  @page {
+    margin: 1.5cm;
+    size: A4 portrait;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  .print-break-before {
+    page-break-before: always;
+  }
+
+  .print-avoid-break {
+    page-break-inside: avoid;
+  }
+
+  body {
+    font-size: 11pt !important;
+    line-height: 1.4 !important;
+    color: #000 !important;
+    background: white !important;
+  }
+
+  /* Compact and beautiful header styling for PDF - reduced spacing */
+  .print-header {
+    margin-bottom: 12pt !important;
+    padding: 10pt 12pt !important;
+    background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%) !important;
+    border-radius: 6pt !important;
+    color: white !important;
+    box-shadow: 0 1pt 4pt rgba(0, 0, 0, 0.1) !important;
+  }
+
+  .print-header h1 {
+    font-size: 18pt !important;
+    font-weight: 700 !important;
+    margin-bottom: 8pt !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1.5pt !important;
+    text-align: center !important;
+    color: white !important;
+    border-bottom: 2pt solid #fb923c !important;
+    padding-bottom: 6pt !important;
+  }
+
+  .print-header-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 6pt 16pt !important;
+    font-size: 10pt !important;
+    background: rgba(255, 255, 255, 0.15) !important;
+    padding: 8pt 10pt !important;
+    border-radius: 4pt !important;
+    backdrop-filter: blur(10px) !important;
+  }
+
+  .print-header-grid > div {
+    display: flex !important;
+    gap: 6pt !important;
+    color: white !important;
+  }
+
+  .print-header-grid strong {
+    font-weight: 700 !important;
+    color: #fb923c !important;
+    min-width: 80pt !important;
+  }
+
+  /* Organized date group sections with navy blue and coral orange theme */
+  .print-date-group {
+    margin-bottom: 20pt !important;
+    page-break-inside: avoid !important;
+  }
+
+  .print-date-header {
+    background: linear-gradient(90deg, #1e3a8a 0%, #3b82f6 100%) !important;
+    color: white !important;
+    padding: 8pt 12pt !important;
+    font-size: 12pt !important;
+    font-weight: 700 !important;
+    margin-bottom: 12pt !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.8pt !important;
+    border-left: 4pt solid #fb923c !important;
+    box-shadow: 0 1pt 3pt rgba(0, 0, 0, 0.1) !important;
+  }
+
+  /* Compact 2-column grid layout for entries */
+  .print-entries-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 14pt !important;
+  }
+
+  .print-entry-card {
+    border: 2pt solid #1e3a8a !important;
+    padding: 12pt !important;
+    page-break-inside: avoid !important;
+    background: white !important;
+    border-radius: 6pt !important;
+    box-shadow: 0 1pt 3pt rgba(0, 0, 0, 0.1) !important;
+  }
+
+  .print-entry-type {
+    font-size: 12pt !important;
+    font-weight: 700 !important;
+    margin-bottom: 10pt !important;
+    padding: 6pt 10pt !important;
+    border-radius: 4pt !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5pt !important;
+    text-align: center !important;
+  }
+
+  .print-entry-type.entrada {
+    background: #1e3a8a !important;
+    color: white !important;
+  }
+
+  .print-entry-type.saida {
+    background: #fb923c !important;
+    color: white !important;
+  }
+
+  .print-entry-image {
+    width: 100% !important;
+    height: auto !important;
+    max-height: 180pt !important;
+    object-fit: cover !important;
+    margin-bottom: 10pt !important;
+    border: 1.5pt solid #e5e7eb !important;
+    border-radius: 4pt !important;
+  }
+
+  .print-entry-date {
+    font-size: 10pt !important;
+    color: #1e3a8a !important;
+    font-weight: 600 !important;
+    margin-top: 8pt !important;
+    padding-top: 8pt !important;
+    border-top: 1pt solid #e5e7eb !important;
+    text-align: center !important;
+  }
+
+  /* Add page numbers and footer */
+  @page {
+    @bottom-right {
+      content: "Página " counter(page);
+      font-size: 9pt;
+      color: #666;
+    }
+    @bottom-left {
+      content: "Registro de KM";
+      font-size: 9pt;
+      color: #666;
+    }
+  }
+}
