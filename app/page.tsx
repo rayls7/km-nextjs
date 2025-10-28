@@ -488,10 +488,6 @@ export default function KMRegistrationPage() {
               <Save className="mr-2 h-4 w-4" />
               Salvar
             </Button>
-            <Button onClick={loadData} variant="outline">
-              <Download className="mr-2 h-4 w-4" />
-              Carregar
-            </Button>
             <Button onClick={clearData} variant="outline">
               <Trash2 className="mr-2 h-4 w-4" />
               Limpar
@@ -500,13 +496,13 @@ export default function KMRegistrationPage() {
               <Download className="mr-2 h-4 w-4" />
               Exportar JSON
             </Button>
+            <Button onClick={() => fileInputRef.current?.click()} variant="outline">
+              <Upload className="mr-2 h-4 w-4" />
+              Importar JSON
+            </Button>
             <Button onClick={exportToExcel} variant="outline">
               <FileSpreadsheet className="mr-2 h-4 w-4" />
               Exportar Excel
-            </Button>
-            <Button onClick={() => fileInputRef.current?.click()} variant="outline">
-              <Upload className="mr-2 h-4 w-4" />
-              Importar
             </Button>
             <Button onClick={printPDF} className="bg-accent hover:bg-accent/90">
               <FileText className="mr-2 h-4 w-4" />
