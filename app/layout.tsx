@@ -11,7 +11,7 @@ const _geistMono = Geist_Mono({ subsets: ["latin"] })
 export const metadata: Metadata = {
   title: "Registro de KM - Sistema Moderno",
   description: "Sistema moderno de registro de quilometragem",
-  generator: "v0.app",
+    generator: 'v0.app'
 }
 
 export default function RootLayout({
