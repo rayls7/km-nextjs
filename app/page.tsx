@@ -57,18 +57,18 @@ const formatCycleBR = (cycleString: string): string => {
 
   const [year, month] = cycleString.split("-")
   const monthNames = [
-    "janeiro",
-    "fevereiro",
-    "março",
-    "abril",
-    "maio",
-    "junho",
-    "julho",
-    "agosto",
-    "setembro",
-    "outubro",
-    "novembro",
-    "dezembro",
+    "Janeiro",
+    "Fevereiro",
+    "Março",
+    "Abril",
+    "Maio",
+    "Junho",
+    "Julho",
+    "Agosto",
+    "Setembro",
+    "Outubro",
+    "Novembro",
+    "Dezembro",
   ]
 
   const monthIndex = Number.parseInt(month) - 1
@@ -96,7 +96,7 @@ export default function KMRegistrationPage() {
       id: Date.now().toString(),
       imageData: "",
       date: new Date().toISOString().split("T")[0],
-      type: isEntrada ? "Entrada" : "Saída",
+      type: isEntrada ? "" : "",
     }
     setFormData((prev) => ({
       ...prev,
@@ -122,7 +122,7 @@ export default function KMRegistrationPage() {
   const saveData = () => {
     localStorage.setItem("kmData", JSON.stringify(formData))
     toast({
-      title: "Dados salvos",
+      title: "Beleza, salvei seus dados.",
       description: "Seus dados foram salvos com sucesso!",
     })
   }
@@ -166,8 +166,8 @@ export default function KMRegistrationPage() {
     link.click()
     URL.revokeObjectURL(url)
     toast({
-      title: "Dados exportados",
-      description: "Arquivo JSON baixado com sucesso!",
+      title: "Beleza, baixei teu backup",
+      description: "Backup baixado com sucesso!",
     })
   }
 
@@ -310,7 +310,7 @@ export default function KMRegistrationPage() {
           setFormData(data)
           localStorage.setItem("kmData", JSON.stringify(data))
           toast({
-            title: "Dados importados",
+            title: "Backup realizado!",
             description: "Dados carregados com sucesso!",
           })
         } catch (error) {
@@ -379,7 +379,7 @@ export default function KMRegistrationPage() {
                 <Input
                   id="employeeName"
                   type="text"
-                  placeholder="Digite o nome..."
+                  placeholder="Seu nome é?..."
                   value={formData.employeeName}
                   onChange={(e) => setFormData((prev) => ({ ...prev, employeeName: e.target.value }))}
                   className="w-full"
@@ -407,24 +407,24 @@ export default function KMRegistrationPage() {
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="branch" className="text-sm font-medium">
-                  Filial
-                </Label>
-                <Select
-                  value={formData.branch}
-                  onValueChange={(value) => setFormData((prev) => ({ ...prev, branch: value }))}
-                >
-                  <SelectTrigger id="branch">
-                    <SelectValue />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="IMP">IMP</SelectItem>
-                    <SelectItem value="AÇA">AÇA</SelectItem>
-                    <SelectItem value="MAR">MAR</SelectItem>
-                    <SelectItem value="SSL">SSL</SelectItem>
-                  </SelectContent>
-                </Select>
-              </div>
+  <Label htmlFor="branch" className="text-sm font-medium">
+    Filial
+  </Label>
+  <Input
+    id="branch"
+    type="text"
+    placeholder="Digite o nome da filial"
+    value={formData.branch}
+    onChange={(e) =>
+      setFormData((prev) => ({
+        ...prev,
+        branch: e.target.value,
+      }))
+    }
+    className="w-full"
+  />
+</div>
+
             </div>
           </CardContent>
         </Card>
@@ -478,9 +478,9 @@ export default function KMRegistrationPage() {
         </div>
 
         <div className="flex flex-col items-center gap-4 no-print">
-          <Button onClick={addEntry} size="lg" className="w-full max-w-md">
+           <Button onClick={addEntry} size="lg" className="w-full max-w-md">
             <Plus className="mr-2 h-5 w-5" />
-            Adicionar Entrada/Saída
+            Adicionar
           </Button>
 
           <div className="flex flex-wrap justify-center gap-3">
@@ -494,21 +494,29 @@ export default function KMRegistrationPage() {
             </Button>
             <Button onClick={exportData} variant="outline">
               <Download className="mr-2 h-4 w-4" />
-              Exportar JSON
+              Salvar backup
             </Button>
             <Button onClick={() => fileInputRef.current?.click()} variant="outline">
               <Upload className="mr-2 h-4 w-4" />
-              Importar JSON
+              Carregar backup
             </Button>
-            <Button onClick={exportToExcel} variant="outline">
-              <FileSpreadsheet className="mr-2 h-4 w-4" />
-              Exportar Excel
-            </Button>
-            <Button onClick={printPDF} className="bg-accent hover:bg-accent/90">
-              <FileText className="mr-2 h-4 w-4" />
-              Salvar PDF
-            </Button>
-          </div>
+            <Button
+  onClick={exportToExcel}
+  className="bg-[#217346] hover:bg-[#1e633e] text-white border-none"
+>
+  <FileSpreadsheet className="mr-2 h-4 w-4" />
+  Exportar Excel
+</Button>
+
+            <Button 
+  onClick={printPDF} 
+  variant="outline"
+  className="border-red-600 text-red-600 hover:bg-red-600 hover:text-white"
+>
+  <FileText className="mr-2 h-4 w-4" />
+  Salvar PDF
+</Button>
+</div>
 
           <input ref={fileInputRef} type="file" accept=".json" onChange={importData} className="hidden" />
         </div>
