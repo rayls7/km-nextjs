@@ -92,23 +92,22 @@ export default function KMRegistrationPage() {
   }, [])
 
   const addEntry = () => {
-    const newItem = {
-  description: "",
-  value: 0,
-  imageData: "",
-  date: new Date().toISOString().split("T")[0],
-  type: isEntrada ? "Entrada" : "Saída",
-};
-
-  const handleAddEntry = () => {
-  const newEntry = { ... }; // ← adiciona isso aqui!
+  const newEntry = {
+    description: "",
+    value: 0,
+    imageData: "",
+    date: new Date().toISOString().split("T")[0],
+    type: isEntrada ? "Entrada" : "Saída",
+  };
 
   setFormData((prev) => ({
     ...prev,
     entries: [...prev.entries, newEntry],
   }));
+
   setIsEntrada(!isEntrada);
 };
+
 
 
   const removeEntry = (id: string) => {
