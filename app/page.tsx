@@ -196,9 +196,9 @@ export default function KMRegistrationPage() {
 })
 
 
-    worksheetData.push([])
-    worksheetData.push(["Total de Registros", formData.entries.length])
-    worksheetData.push(["Data de Exportação", formatDateBR(new Date().toISOString())])
+    worksheetData.push(["Total de Registros", formData.entries.length.toString()])
+worksheetData.push(["Data de Exportação", formatDateBR(new Date().toISOString())])
+
 
     const wb = XLSX.utils.book_new()
     const ws = XLSX.utils.aoa_to_sheet(worksheetData)
