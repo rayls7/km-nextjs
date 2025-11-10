@@ -100,12 +100,16 @@ export default function KMRegistrationPage() {
   type: isEntrada ? "Entrada" : "Saída",
 };
 
-    setFormData((prev) => ({
-      ...prev,
-      entries: [...prev.entries, newEntry],
-    }));
-    setIsEntrada(!isEntrada);
-  };
+  const handleAddEntry = () => {
+  const newEntry = { ... }; // ← adiciona isso aqui!
+
+  setFormData((prev) => ({
+    ...prev,
+    entries: [...prev.entries, newEntry],
+  }));
+  setIsEntrada(!isEntrada);
+};
+
 
   const removeEntry = (id: string) => {
     setFormData((prev) => ({
