@@ -186,14 +186,15 @@ export default function KMRegistrationPage() {
     ]
 
     formData.entries.forEach((entry, index) => {
-      worksheetData.push([
-        index + 1,
-        entry.type,
-        formatDateBR(entry.date),
-        entry.imageData ? "✓ Anexada" : "✗ Sem imagem",
-        "",
-      ])
-    })
+  worksheetData.push([
+    (index + 1).toString(),   // <-- converte para string
+    entry.type,
+    formatDateBR(entry.date),
+    entry.imageData ? "✓ Anexada" : "✗ Sem imagem",
+    "",
+  ])
+})
+
 
     worksheetData.push([])
     worksheetData.push(["Total de Registros", formData.entries.length])
