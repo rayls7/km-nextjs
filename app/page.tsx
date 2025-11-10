@@ -103,9 +103,9 @@ export default function KMRegistrationPage() {
     setFormData((prev) => ({
       ...prev,
       entries: [...prev.entries, newEntry],
-    }))
-    setIsEntrada(!isEntrada)
-  }
+    }));
+    setIsEntrada(!isEntrada);
+  };
 
   const removeEntry = (id: string) => {
     setFormData((prev) => ({
