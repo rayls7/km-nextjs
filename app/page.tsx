@@ -92,24 +92,18 @@ export default function KMRegistrationPage() {
   }, [])
 
   const addEntry = () => {
-  const newEntry: KMEntry = {
-    id: Date.now().toString(),
-    imageData: "",
-    date: new Date().toISOString().split("T")[0],
-    type: isEntrada ? "Entrada" : "Saída",
+    const newEntry: KMEntry = {
+      id: Date.now().toString(),
+      imageData: "",
+      date: new Date().toISOString().split("T")[0],
+      type: isEntrada ? "Entrada" : "Saída",
+    }
+    setFormData((prev) => ({
+      ...prev,
+      entries: [...prev.entries, newEntry],
+    }))
+    setIsEntrada(!isEntrada)
   }
-
-  setFormData((prev) => ({
-    ...prev,
-    entries: [...prev.entries, newEntry],
-  }))
-
-  setIsEntrada(!isEntrada)
-}
-
-
-
-
 
   const removeEntry = (id: string) => {
     setFormData((prev) => ({
@@ -413,24 +407,24 @@ export default function KMRegistrationPage() {
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="branch" className="text-sm font-medium">
-                  Filial
-                </Label>
-                <Select
-                  value={formData.branch}
-                  onValueChange={(value) => setFormData((prev) => ({ ...prev, branch: value }))}
-                >
-                  <SelectTrigger id="branch">
-                    <SelectValue />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="IMP">IMP</SelectItem>
-                    <SelectItem value="AÇA">AÇA</SelectItem>
-                    <SelectItem value="MAR">MAR</SelectItem>
-                    <SelectItem value="SSL">SSL</SelectItem>
-                  </SelectContent>
-                </Select>
-              </div>
+  <Label htmlFor="branch" className="text-sm font-medium">
+    Filial
+  </Label>
+  <Input
+    id="branch"
+    type="text"
+    placeholder="Digite o nome da filial"
+    value={formData.branch}
+    onChange={(e) =>
+      setFormData((prev) => ({
+        ...prev,
+        branch: e.target.value,
+      }))
+    }
+    className="w-full"
+  />
+</div>
+
             </div>
           </CardContent>
         </Card>
