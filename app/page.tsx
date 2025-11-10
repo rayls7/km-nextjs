@@ -93,7 +93,7 @@ export default function KMRegistrationPage() {
 
   const addEntry = () => {
   const newEntry = {
-    id: Date.now(),
+    id: Date.now().toString(),
     description: "",
     value: 0,
     imageData: "",
