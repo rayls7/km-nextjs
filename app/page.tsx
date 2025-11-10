@@ -93,6 +93,7 @@ export default function KMRegistrationPage() {
 
   const addEntry = () => {
   const newEntry = {
+    id: Date.now(),
     description: "",
     value: 0,
     imageData: "",
@@ -107,6 +108,7 @@ export default function KMRegistrationPage() {
 
   setIsEntrada(!isEntrada);
 };
+
 
 
 
